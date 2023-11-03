@@ -1,0 +1,32 @@
+<!-- Create an HTML list with at least five list items. Each list item should contain a button
+ with a label like "Delete."
+- Using JavaScript, add functionality so that when a "Delete" button is clicked, itremoves the 
+corresponding listitem from the list. -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List Item Deletion</title>
+</head>
+<body>
+    <ul id="myList">
+        <li>Item 1 <button class="delete-button">Delete</button></li><br>
+        <li>Item 2 <button class="delete-button">Delete</button></li><br>
+        <li>Item 3 <button class="delete-button">Delete</button></li><br>
+        <li>Item 4 <button class="delete-button">Delete</button></li><br>
+        <li>Item 5 <button class="delete-button">Delete</button></li><br>
+    </ul>
+
+    <script>
+        const deleteButtons = document.querySelectorAll(".delete-button");
+        const myList = document.getElementById("myList");
+
+        deleteButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                // Remove the parent list item (the <li> element) when the button is clicked
+                const listItem = this.parentElement;
+                myList.removeChild(listItem);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>largest</title>
+        <script>
+            function findlargest()
+            {
+                var a=prompt("enter first number")
+                var b=prompt("enter second number")
+                var c=prompt("enter third number")
+
+                var num1=parseInt(a);
+                var num2=parseInt(b);
+                var num3=parseInt(c);
+
+                if(num1>num2 && num1>num3)
+                {
+                    alert(num1+ " is greatest");
+                }
+                else if(num2>num1 && num2>num3){
+                    alert(num2+ " is greatest");
+                }
+                
+                else
+                {
+                    alert(num3+ " is greatest");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" onclick="findlargest()">CLICK TO FIND LARGEST</button>
+    </body>
+</html>

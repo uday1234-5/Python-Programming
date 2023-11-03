@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid transparent;
+            border-top: none;
+            border-bottom-color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="triangle" id="triangle"></div>
+
+    <script>
+        const triangle = document.getElementById("triangle");
+
+        // Function to change the color
+        function changeColor() {
+            if (triangle.style.borderBottomColor === "black") {
+                triangle.style.borderBottomColor = "red";
+            } else {
+                triangle.style.borderBottomColor = "black";
+            }
+        }
+
+        // Add a click event listener
+        triangle.addEventListener("click", changeColor);
+    </script>
+</body>
+</html>

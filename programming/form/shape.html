@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shape</title>
+    <style>
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50px;
+        }
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid green;
+            
+        }
+        .custom-shape {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            border-radius: 100vh;
+            transform: rotate(65deg);
+        }
+        .star {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid black;
+            position: absolute;
+           
+        }
+        .star:after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-top: 100px solid black;
+            position: absolute;
+            top: 25px;
+            left: -50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>differet shapes</h1>
+    <div class="square">
+    </div>
+    <br><br>
+    <div class="circle"></div>
+    <br><br>
+ 
+    <div class="triangle"></div>
+    <br><br>
+    <div class="custom-shape"></div>
+    <br><br>
+     <div class="star"></div>
+</body>
+</html>

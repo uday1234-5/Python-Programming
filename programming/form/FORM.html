@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <script>
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password === confirmPassword) {
+                <!-- alert("Passwords match!"); -->
+                alert("form submitted successfully");
+            } else{
+                alert("Passwords do not match!");
+            }
+        }
+    </script>
+</head>
+<body bgcolor="pink">
+    
+    <h2><form name="signup" action="backened.php" method="post">
+         <center><h1><u>SIGN UP FORM</u></h1></center>
+    <TABLE align="center" >
+        <tr>
+            <td>First Name :
+                <input type="text" required="required" name="n1" pattern="^[a-zA-Z]*$" placeholder="Enter First Name"
+                title="please enter the name in character"><br><br>
+            </td>
+        </tr>
+        <tr>
+            <td>Last Name :
+                <input type="text" required="required" name="l1" pattern="^[a-zA-Z]*$" placeholder="Enter Last Name"><br><br>
+            </td>
+        </tr>
+        <tr>
+            <td>Date of Birth :
+                <input type="date" required="required" name="dob" id="dob" placeholder="Enter Date of Birth"><br><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Country:<select required="required" name="c1" >
+                    <option value="INDIA" >INDIA</option>
+                    <OPTION value="USA">USA</OPTION>
+                    <option value="CANADA" >CANADA</option>
+                    <option value="BRITAIN" selected>BRITAIN </option>
+                    <OPTION value="JAPAN" >JAPAN</OPTION>
+                    
+                   
+                </select>
+                <br><br>
+            </td>
+        </tr>
+        
+        <tr>
+                <td>Email :
+                    <input type="TEXT" required="required" name="e1" placeholder="Enter your Email"><br><br>
+                    
+                </td>
+            </tr>
+            <TR>
+                <td>Phone : 
+                    <input type="text" required="required" name="p1"  pattern="^[0-9]*$" title="Enter 10 digit number" maxlength="10" placeholder="Enter your phone number"><br><br></td>
+                </Td>
+            </TR>
+            <tr>
+                <td> 
+                    Password :
+                    <input type="password" id="password" name="p1" required="required" pattern="^[a-zA-Z0-9]*$"  title="please set your password as per the pattern"><br><br> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Confirm Password :
+                     <input type="password" id="confirmPassword" name="p1" required="required" pattern="^[a-zA-Z0-9]*$"    ><br><Br></td> 
+            </tr>
+            
+            <tr>
+                <td><HR>
+                    <input type="submit" value="Register" onclick="validatePassword()">
+            <input type="submit" value="Cancel"><br><br> </td>
+            </tr>
+            
+ 
+            <p id="message"></p>
+    </TABLE> 
+    
+</form>
+</h2>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        function xyz(){
+        var num = document.getElementById('num').value;
+        var x = parseInt(num)
+        var i;
+        document.getElementById('answer').innerHTML = "";
+        for(i=1;i<=10;i++){
+          
+        
+        document.getElementById('answer').innerHTML += "<tr><td>" +x +"</td><td> X</td><td> "+i+" </td><td>=</td><td> "+x*i+"</td></tr>";
+    }}
+    </script>
+</head>
+<body>
+    Enter nunber: <input type="text" id="num" >
+    <input type="submit" value="find table" id="demo" onclick="xyz()">
+    <table border="1" cellspacing="0" id="answer"></table>
+</body>
+</html>

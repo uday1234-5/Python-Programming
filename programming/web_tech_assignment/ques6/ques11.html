@@ -1,0 +1,83 @@
+<!-- 11. Create PHP code to validate a file upload input:
+- Check if the uploaded file is an image (e.g., jpg, png).
+- Restrict the file size to a maximum limit (e.g., 2MB).
+- Display error messages for invalid file types or exceeding the size limit.
+Course: B. Tech (CS) Assignment- 2 Sesson:20023-24
+Subject (Subject Code): Web Technology-I (BCSC0062) DOS: 10/10/23 -->
+
+
+
+
+
+
+
+
+<?php
+// Initialize variables
+$uploadDirectory = "uploads/";  // Directory where files will be uploaded
+$allowedFileTypes = ['jpg', 'png'];
+$maxFileSize = 2 * 1024 * 1024; // 2MB
+
+// Initialize error variables
+$errors = [];
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if the file input field is set
+    if (isset($_FILES['file'])) {
+        $uploadedFile = $_FILES['file'];
+
+        // Check for errors during file upload
+        if ($uploadedFile['error'] === UPLOAD_ERR_OK) {
+            // Get file information
+            $fileName = $uploadedFile['name'];
+            $fileSize = $uploadedFile['size'];
+            $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+
+            // Check file type
+            if (!in_array(strtolower($fileType), $allowedFileTypes)) {
+                $errors[] = "Invalid file type. Please upload a JPG or PNG file.";
+            }
+
+            // Check file size
+            if ($fileSize > $maxFileSize) {
+                $errors[] = "File size exceeds the maximum allowed limit (2MB).";
+            }
+
+            // If no errors, move the file to the upload directory
+            if (empty($errors)) {
+                $targetPath = $uploadDirectory . basename($fileName);
+                if (move_uploaded_file($uploadedFile['tmp_name'], $targetPath)) {
+                    echo "File uploaded successfully.";
+                } else {
+                    $errors[] = "Error uploading file.";
+                }
+            }
+        } else {
+            $errors[] = "Error during file upload.";
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload Validation</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <label for="file">Choose a file:</label>
+        <input type="file" id="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+    
+    <?php if (!empty($errors)) { ?>
+        <ul style="color: red;">
+            <?php foreach ($errors as $error) { ?>
+                <li><?php echo $error; ?></li>
+            <?php } ?>
+        </ul>
+    <?php } ?>
+</body>
+</html>
