@@ -12,3 +12,32 @@ if num== sum_of_cubes :
 else:
     print(f"({num} is not an armstrong number)")    
     
+    
+    
+    
+"""=================================================="""
+def is_armstrong(num):
+    # Convert the number to a string to find its length
+    num_str = str(num)
+    # Calculate the number of digits
+    num_digits = len(num_str)
+    
+    # Initialize the sum of powered digits
+    sum_of_digits = 0
+    
+    # Calculate the sum of each digit raised to the power of the number of digits
+    for digit in num_str:
+        sum_of_digits += int(digit) ** num_digits
+    
+    # Check if the number is Armstrong or not
+    if sum_of_digits == num:
+        return True
+    else:
+        return False
+
+# Example usage:
+num = int(input("Enter a number: "))
+if is_armstrong(num):
+    print(num, "is an Armstrong number.")
+else:
+    print(num, "is not an Armstrong number.")
